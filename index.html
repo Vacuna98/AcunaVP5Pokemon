@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <title>acunavp5pokemon</title>
+  </head>
+  <body class="h-screen bg-cover bg-center bg-no-repeat flex items-center justify-center"
+      style="background-image: url(&quot;./Assets/pokemon-bg-4.png&quot;)">
+    
+      <div class="min-h-screen grid place-content-center">
+        <div class="bg-gray-400/30 w-250 h-full mb-5 rounded-2xl shadow-xs">
+<!-- SEARCH BAR -->
+           <!--ID: searchForm-->
+          <form id="searchForm" class="max-w-md mx-auto">
+            <label
+              for="search"
+              class="mt-5 block mb-2.5 text-sm font-medium text-heading sr-only"
+              >Search</label
+            >
+            <div class="relative w-100 ">
+              <div
+                class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+              >
+                <svg
+                  class="w-4 h-4 text-body"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-width="2"
+                    d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+                  />
+                </svg>
+              </div>
+              <!--ID:search -->
+              <input
+                type="search"
+                id="search" 
+                class="block w-full p-3 ps-9 mt-4 mb-4 bg-white border border-default-medium text-heading text-sm rounded-2xl focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
+                placeholder="Search"
+                required
+              />
+              <!--ID: SearchBtn-->
+              <button id="searchBtn"
+                type="button"
+                class="absolute end-1.5 bottom-1.5 text-white bg-blue-600 hover:bg-brand-strong box-border border border-yellow-400 focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-xl text-xs px-3 py-1.5 focus:outline-none"
+              >
+                Search
+              </button>
+            </div>
+          </form>
+
+<!--Pokemon Card -->
+          <div class="grid grid-cols-4 gap-5 mx-20 mt-7">
+          <div
+            class="bg-gray-300/80 block max-w-sm p-2 border border-default rounded-2xl shadow-xs"
+          >
+          <!--ID: pokemonName -->
+          <div >
+            <button id="favoriteBtn" type="button">
+
+              <img src="./Assets/favorite.png" alt="favorite" class="w-7 h-7">
+            </button>
+            <h5 id="pokemonName" class="mb-2 text-2xl font-semibold text-heading text-center">
+              Pokemon Character
+            </h5>
+          </div>
+
+            <div class="flex justify-center">
+
+              <!--ID: pokemonImg -->
+              <img id="pokemonImg" src="" alt="pokemon" class="justify-items-center" />
+            </div>
+            <p class="text-center">Click on Image</p>
+
+            <!-- ID: imgHint -->
+            <p id="imgHint" class="text-center justify-center"></p>
+            <!-- ID: pokemonEvolution-->
+            <p
+            class="inline-flex font-medium items-center text-fg-brand hover:underline mt-5"
+            >
+            Evolutionary Path
+          </p>
+          <ul id="pokemonEvolution" class="text-sm text-body"></ul>
+          </div>
+<!-- Element -->
+          <div class="grid grid-rows-2 gap-3">
+
+
+          <div
+            
+            class="relative bg-gray-300/80 flex w-full max-w-xs p-4 text-body rounded-2xl shadow-xs border border-default"
+            role="alert"
+          >
+            <div class="flex">
+              <div class="ms-3 text-sm font-normal">
+                <span class="font-semibold text-heading">Element</span>
+                <!--ID: pokemonType-->
+                <div id="pokemonType"
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+<!-- Location -->
+           <div
+            class="relative bg-gray-300/80 flex w-full max-w-xs p-4 text-body rounded-2xl shadow-xs border border-default"
+            role="alert"
+          >
+            <div class="flex">
+              <div class="ms-3 text-sm font-normal">
+                <span class="font-semibold text-heading">Location</span>
+                <!-- ID: pokemonLocation-->
+                <div id="pokemonLocation"
+                  class="mt-2 text-heading text-sm"> 
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+
+
+
+  <div class="grid grid-rows-2 gap-3">
+
+    <div
+    
+    class="relative flex w-full max-w-xs p-4 text-body bg-gray-300/80 rounded-2xl shadow-xs border border-default"
+    role="alert"
+    >
+    <!-- Possible Move Box -->
+    <div class="flex">
+      <div class="ms-3 text-sm font-normal">
+        <span class="font-semibold text-heading">Possible Moves</span>
+        <!-- ID: moveList-->
+        <div id="moveList"
+        class="text-sm text-body"> 
+      </div>
+    </div>
+  </div>
+</div>
+<div
+    
+    class="relative flex w-full max-w-xs p-4 text-body bg-gray-300/80 rounded-2xl shadow-xs border border-default"
+    role="alert"
+    >
+    <!-- Possible Move Box -->
+    <div class="flex">
+      <div class="ms-3 text-sm font-normal">
+        <span class="font-semibold text-heading">Possible Abilities</span>
+        <!-- ID: moveList-->
+        <div id="abilitiesList"
+        class="text-sm text-body"> 
+      </div>
+    </div>
+  </div>
+</div>
+</div>        
+
+          
+
+<!-- Favorites -->
+           <div
+            class="relative flex w-full max-w-xs p-4 text-body bg-gray-300/80 rounded-2xl shadow-xs border border-default"
+            role="alert"
+          >
+            <div class="flex">
+              <div class="ms-3 text-sm font-normal">
+                <span class="font-semibold text-heading">Favorites</span>
+                <!--ID: favorites-->
+                <div id="favorites"
+                  class="mt-2 text-heading text-sm"> 
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+     
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+    <script type="module" src="./scripts/app.js"></script>
+  </body>
+</html>
